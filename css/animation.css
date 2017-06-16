@@ -1,0 +1,10 @@
+@-webkit-keyframes toggler-1 {
+  0% {
+    width: 10%; }
+  100% {
+    width: 20%; } }
+@keyframes toggler-1 {
+  0% {
+    width: 10%; }
+  100% {
+    width: 20%; } }

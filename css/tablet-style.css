@@ -1,0 +1,14 @@
+@media (max-width: 768px) {
+  body {
+    font-size: 15px; }
+  #about {
+    padding: 60px 0; }
+    #about .row .profile {
+      background: yellow; }
+      #about .row .profile img {
+        max-width: 340px;
+        width: 100%;
+        border-radius: 50%;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+        margin: auto;
+        display: block; } }

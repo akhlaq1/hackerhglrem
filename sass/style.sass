@@ -1,0 +1,511 @@
+*
+  margin: 0
+  padding: 0
+  -webkit-tap-highlight-color: transparent
+
+@import "grid.sass"
+@import "vars.sass"
+@import "fonts.sass"
+@import "mixins.sass"
+html, body
+  height: 100%
+body
+  font-size: 16px
+  -webkit-font-smoothing: antialiased
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+section.gery
+  background: $pr-bg
+section.dark
+  background: $dark
+  color: #fff
+section.desc
+  .container
+    padding: 70px 10px
+h1,h2,h3,h4,h5,h6
+  font-weight: 300
+h1
+  font-size: 2em
+h2
+  font-size: 1.8em
+h3
+  font-size: 1.5em
+h4
+  font-size: 1.3em
+h5
+  font-size: 1.1em
+h6
+  font-size: 1em
+p
+  font-size: 14px
+ul,li,ol
+  list-style: none
+a
+  text-decoration: none
+  color: $dark
+.float-fix::after
+  content: ''
+  clear: both
+  display: block
+.text-center
+  text-align: center
+.text-right
+  text-align: right
+.text-left
+  text-align: left
+.text-justify
+  text-align: justify
+.zer0
+  padding: 0
+  margin: 0
+#nav
+  #navbar
+    display: none
+  .nav-button
+    overflow: hidden
+    position: fixed
+    top: 40px
+    right: 40px
+    width: $nav-button-size
+    height: $nav-button-size
+    background: rgba(255, 255, 255, 0.6)
+    z-index: 6
+    cursor: pointer
+    .bars
+      position: absolute
+      top: 25%
+      left: 25%
+      width: 50%
+      height: 50%
+      margin-top: 6px
+      .bar
+        position: absolute
+        height: 2px
+        width: 100%
+        background: #000
+        margin-top: 0
+        opacity: 1
+        @include transition(all 400ms ease)
+        &:nth-child(2), &:nth-child(3)
+          @include transition-delay(0ms)
+          top: 10px
+        &:nth-child(4)
+          top: 20px
+  .navbar
+    position: fixed
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background: $navbar-bg
+    z-index: 4
+    opacity: 0
+    visibility: hidden
+    @include transition((opacity 800ms ease, visibility 800ms ease))
+    .menu
+      position: absolute
+      top: 400px
+      text-transform: capitalize
+      opacity: 0
+      padding-left: 30px
+      @include transition((top 500ms ease, opacity 300ms ease))
+      a
+        color: #fff
+        h1
+          display: inline-block
+          margin-bottom: 5px
+          position: relative
+          font-weight: 300
+          letter-spacing: 1px
+          overflow: hidden
+          .bg
+            position: absolute
+            bottom: 0
+            left: 100%
+            width: 0
+            height: 2px
+            background: #fff
+            opacity: 1
+            @include transition((width 600ms ease, left 400ms ease))
+          &:hover
+            .bg
+              opacity: 1
+              left: 0
+              width: 100%
+  #navbar:checked + label .nav-button
+    background: none
+    .bars
+      .bar
+        background: #fff
+        &:nth-child(1)
+          margin-top: 10px
+          opacity: 0
+        &:nth-child(4)
+          margin-top: -10px
+          opacity: 0
+        &:nth-child(2)
+          width: 150%
+          margin-left: -8px
+          @include transition-delay(250ms)
+          @include transform(rotate(45deg))
+        &:nth-child(3)
+          margin-left: -8px
+          width: 150%
+          @include transition-delay(250ms)
+          @include transform(rotate(-45deg))
+  #navbar:checked ~ .navbar
+    opacity: 1
+    visibility: visible
+    .menu
+      opacity: 1
+      top: 100px
+
+#home
+  min-height: 100%
+  background: url(../images/light-bg.jpg) no-repeat
+  background-size: cover
+  background-position: center top
+  background-attachment: fixed
+  .header-bg
+    background: rgba(0, 0, 0, .4)
+    z-index: 1
+  .layer-2
+    background: url(../images/layer2.png)
+    z-index: 0
+  .layer-3
+    background: url(../images/layer3.png)
+    z-index: 0
+  .layer
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    height: 100%
+    width: 100%
+    &.blub
+      background-size: cover
+      @include transition((top 200ms ease, left 200ms ease))
+  .container
+    z-index: 3
+    color: #fff
+    .row
+      display: block
+      &.desc
+        .g
+          width: 100%
+        margin-top: 21%
+        h4
+          font-weight: 400
+      padding-top: 30px
+    .heading
+      padding-top: 30px
+      h1
+        font-weight: 400
+
+#about
+  padding: 60px 0
+  .row
+    .text
+      color: $dark
+      h6
+        font-weight: 600
+        line-height: 24px
+        margin: 4px 0 20px 0
+      p
+        font-size: 16px
+        line-height: 1.6
+        color: $font-light
+        margin-bottom: 14px
+        .dark
+          color: darken($dark, 2%)
+        &.lead
+          color: darken($font-light, 2%)!important
+          font-size: 18px
+          line-height: 1.7
+    .profile
+      img
+        max-width: 340px
+        width: 100%
+        border-radius: 50%
+        box-shadow: 0 0 10px 1px rgba(0,0,0,.4)
+        margin: auto
+        display: block
+
+#status
+  .container
+    .col-lg-12
+      margin-bottom: 30px
+    .text
+      margin-top: 20px
+    .box
+      color: $primary
+      margin: auto
+      width: 120px
+      height: 120px
+      border-radius: 50%
+      border: 3px solid
+      box-shadow: 0 0 10px $primary
+      cursor: pointer
+      animation: optix 2s ease infinite alternate
+      h2
+        color: #fff
+        font-weight: 400
+        line-height: 4
+    .box-base
+      &:nth-child(2) .box
+        animation-delay: 500ms
+      &:nth-child(3) .box
+        animation-delay: 1s
+      &:nth-child(4) .box
+        animation-delay: 1500ms
+
+#quotes
+  .container
+    .row
+      .fa
+        color: $primary
+        font-size: 32px
+        &.fa-quote-right
+          float: right
+      #quote-base
+        position: relative
+        .quoted
+          text-align: center
+          text-transform: capitalize
+          position: absolute
+          opacity: 0
+          @include transition(opacity 600ms ease)
+          &.hide
+            top: 50%
+            left: 50%
+            opacity: 0
+            @include transform(translate(-50%, -50%))
+          &.active
+            top: 50%
+            left: 50%
+            // display: block
+            opacity: 1
+            @include transform(translate(-50%, -50%))
+          h1
+            font-weight: 500
+            max-width: 600px
+            margin: 16px auto
+            line-height: 1.4
+          .author
+            font-weight: bold
+            display: inline-block
+            &::first-letter
+              color: $primary
+              font-size: 1.1em
+            span
+              float: left
+              margin-right: 8px
+
+#skills
+  .container
+    h5
+      margin: 10px 0 30px 0
+    .skills-bars
+      .sect
+        .skill
+          margin: 20px 0 0 0
+          .text
+            margin-bottom: 8px
+          .bar
+            position: relative
+            height: 12px
+            .c
+              position: absolute
+              height: 100%
+        &.designing
+          text-align: right
+          padding-right: 15px
+          .skill
+            .bar
+              background: lighten($secondary, 40)
+              .c
+                right: 0
+                background: $secondary
+        &.development
+          width: 100%
+          text-align: left
+          padding-left: 15px
+          .skill
+            overflow: hidden
+            .bar
+              background: lighten($primary, 40)
+              .c
+                background: $primary
+
+#portfolio
+  .container
+    #portfolio-base
+      margin: 50px 0 0 0
+      .portfolio-item
+        @include transition(height 200ms ease)
+        position: relative
+        height: 240px
+        margin-bottom: 20px
+        padding: 0 20px
+        overflow: hidden
+        cursor: pointer
+        .text
+          position: absolute
+          @include position(100%, 10px, 0, 10px)
+          @include transition((top 800ms ease, opacity 600ms ease))
+          opacity: 0
+          background: transparentize($secondary, .1)
+          z-index: 2
+          padding: 25% 0 0 0
+          h3, p
+            color: #fff
+            font-weight: 400
+          p
+            margin: 10px 7.5%
+            line-height: 1.6
+            width: 85%
+            color: lighten($font-light, 10)
+          .button
+            color: $primary
+            border: 2px solid
+            width: auto
+            display: inline-block
+            padding: 10px 24px
+            position: absolute
+            bottom: -50px
+            font-weight: 600
+            left: 50%
+            margin-left: -45px
+            box-shadow: 0 0 16px 1px $dark
+            overflow: hidden
+            @include transition(bottom 400ms ease)
+            @include transition-delay(0ms)
+            .button-bg
+              background: rgba(0, 0, 0, .6)
+              position: absolute
+              top: 0
+              left: 0
+              height: 100%
+              width: 100%
+              z-index: 0
+              @include transition(top 300ms ease)
+            span
+              position: relative
+              z-index: 1
+            &:hover
+              .button-bg
+                top: 100%
+
+        &:hover
+          .text
+            opacity: 1
+            top: 0
+            .button
+              @include transition-delay(200ms)
+              bottom: 20px
+        .bg
+          z-index: 1
+          position: absolute
+          @include position(0, 10px, 0, 10px)
+          height: 100%
+          background-position: top center !important
+          background-size: cover !important
+
+#contact
+  .container
+    padding: 70px 10px 30px 10px
+    .heading
+      margin-bottom: 20px
+    .links
+      .box
+        .fa
+          color: $primary
+          text-shadow: 0 0 10px darken($primary, 30)
+        a
+          color: #fff
+          p
+            margin: 25px 0 5px 0
+    .form
+      margin: 60px 0 0 0
+      form
+        .row.zer0
+          margin: 20px 0 0 0
+          .col-md-6
+            &:first-child
+              padding-right: 10px
+            &:last-child
+              padding-left: 10px
+          .err
+            display: none
+            text-align: left
+            margin: 8px 0 0 8px
+            color: darken(#fff, 5)
+        input, textarea
+          width: 100%
+          border: 2px solid $primary
+          padding: 10px
+          background: transparent
+          color: #fff
+          font-size: 18px
+          resize: none
+          appearance: none
+          @include transition(color 200ms ease)
+          &:focus
+            outline: none
+            color: $primary
+          &:-webkit-autofill
+            -webkit-box-shadow: 0 0 0 50px $dark inset
+            -webkit-text-fill-color: #fff
+            -webkit-transition: -webkit-text-fill-color 400ms ease
+            &:focus
+              -webkit-text-fill-color: $primary
+        .button
+          cursor: pointer
+          color: #fff
+          border: 2px solid $primary
+          font-size: 18px
+          padding: 15px 24px
+          display: block
+          width: auto
+          float: left
+          &:hover
+            border-color: #fff
+    .copy
+      padding-top: 40px
+    #toaster
+      position: fixed
+      bottom: -60px
+      right: 20px
+      background: rgba(0,0,0,.2)
+      padding: 16px 36px
+      border-radius: 4px
+      box-shadow: 0 2px 3px rgba(0, 0, 0, .3)
+      z-index: 9
+      opacity: 0
+      @include transition(all 400ms ease)
+      cursor: pointer
+      &.success
+        background: #449d48
+      &.warning
+        background: #ffc107
+        color: black
+      &.danger
+        background: #f44336
+      &.active
+        bottom: 20px
+        opacity: 1
+      i.fa
+        position: absolute
+        font-size: 1.2em
+        top: 4px
+        right: 9px
+        opacity: 0
+        @include transition(opacity 400ms ease)
+      &:hover
+        i.fa
+          opacity: 1
+
+@import "tablet-style.sass"
+@import "mobile-style.sass"
+@import "450px.sass"
+@import "animation.sass"

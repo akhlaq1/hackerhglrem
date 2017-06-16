@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(content="width=device-width,initial-scale=1", name="viewport")
+    meta(content="ie=edge", http-equiv="x-ua-compatible")
+    link(href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700", rel="stylesheet")
+    link(href="./css/style.css", rel="stylesheet")
+  body
+    include jade/nav.jade
+    include jade/header.jade
+    include jade/about.jade
+    include jade/status.jade
+    include jade/journey.jade
+    include jade/skills.jade
+    include jade/portfolio.jade
+    include jade/contact.jade
+    script(src="js/firebase-app.js")
+    script(src="js/firebase-database.js")
+    script(src="js/lockr.js")
+    script(src="js/script-dist.js")

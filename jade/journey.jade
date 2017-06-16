@@ -1,0 +1,31 @@
+-
+  list = [
+    {quote: "", author: ""},
+    {quote: "creativity is intelligence having fun", author: ""},
+    {quote: "There is no innovation and creativity without failure. Period", author: "Brene Brown"},
+    {quote: "Properly practiced creativity can make one ad do the work of ten", author: "William Bernbach"},
+    {quote: "Creativity is knowing how to hide your sources", author: "C.E.M. Joad"},
+    {quote: "Imagination is everything. It is the preview of life's coming attractions", author: "Albert Einstein"},
+    {quote: "You can't use up creativity. the more you use, the more you have", author: "Maya Angelou"}
+  ]
+  count = 1
+section#quotes.desc.gery
+  .container
+    .row
+      .col-lg-12
+        i.fa.fa-quote-left
+        .row.base#quote-base
+          each item in list
+            .quoted
+              h1= item.quote
+              if item.author != ""
+                h3.author= item.author
+                  |
+                  span -
+              else 
+                h3.author Anonymous
+                  |
+                  span -
+            - count++
+        i.fa.fa-quote-right
+        

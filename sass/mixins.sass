@@ -1,0 +1,52 @@
+@mixin transition($var)
+  -webkit-transition: $var
+  -moz-transition: $var
+  -ms-transition: $var
+  -o-transition: $var
+  transition: $var
+
+@mixin transition-delay($var)
+  -webkit-transition-delay: $var
+  -moz-transition-delay: $var
+  -ms-transition-delay: $var
+  -o-transition-delay: $var
+  transition-delay: $var
+
+@mixin transform ($var)
+  -webkit-transform: $var
+  -moz-transform: $var
+  -ms-transform: $var
+  -o-transform: $var
+  transform: $var
+
+@mixin transform-origin ($var)
+  -webkit-transform-origin: $var
+  -moz-transform-origin: $var
+  -ms-transform-origin: $var
+  -o-transform-origin: $var
+  transform-origin: $var
+
+@mixin position($top, $right: null, $bottom: null, $left: null)
+  @if $right != null and $bottom == null
+    top: $top
+    right: $right
+    bottom: $top
+    left: $right
+  @else if $right == null
+    top: $top
+    right: $top
+    bottom: $top
+    left: $top
+  @else
+    top: $top
+    right: $right
+    bottom: $bottom
+    left: $left
+
+@mixin size($height, $width: null)
+  @if $width == null
+    height: $height
+    width: $height
+  @else
+    height: $height
+    width: $width

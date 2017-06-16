@@ -1,0 +1,51 @@
+section#contact.desc.dark
+  .container
+    .row.text-center
+      .col-lg-12.heading
+        h1 Contact
+      .col-lg-12.zer0
+        .row.zer0.links
+          .box.col-md-3.col-sm-6
+            .fa.fa-facebook.fa-4x
+            a(href="//fb.com/hackerhgl",target="_blank")
+              p fb.com/hackerhgl
+            h3 Facebook
+          .box.col-md-3.col-sm-6
+            .fa.fa-whatsapp.fa-4x
+            a(href="intent://send/923148155304#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end")
+              p +923148155304
+            h3 Whatsapp
+          .box.col-md-3.col-sm-6
+            .fa.fa-skype.fa-4x
+            a(href="skype:hamza.iqbal.jawaid.iqbal?chat")
+              p hamza.iqbal.jawaid.iqbal
+            h3 Skype
+          .box.col-md-3.col-sm-6
+            .fa.fa-envelope.fa-4x
+            a(href="mailto:hackerhgl@gmail.com")
+              p hackerhgl@gmail.com
+            h3 Email
+      .col-lg-12.zer0
+        .row.zer0.form
+          .col-lg-12
+            h2 Message Me
+          .col-lg-12
+            form
+              .row.zer0
+                .col-md-6.zer0
+                  input#input_name(type="text", name="name", placeholder="Your Name")
+                  div#name_err.err
+                .col-md-6.zer0
+                  input#input_email(type="email", name="email", placeholder="Your Email")
+                  div#email_err.err
+              .row.zer0
+                .col-12.zer0
+                  textarea#input_message(placeholder="Your Message")
+                  div#message_err.err
+              .row.zer0
+                .button(onclick="submit();") Send Message
+          .col-lg-12
+            h3.copy.text-center &copy; Copyright Hackerhgl 2017
+    #toaster
+      i#toast-close.fa.fa-close(onclick="toastclose();")
+      #toast-messsage 
