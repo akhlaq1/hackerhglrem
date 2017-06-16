@@ -3,3 +3,11 @@
     box-shadow: 0 0 4px 1px $primary, inset 0 0 16px $primary
   100%
     box-shadow: 0 0 16px 3px darken($primary, 5), inset 0 0 4px $primary
+
+@keyframes toggle
+  90%
+    @include transform(scale(1.05))
+  96%
+    @include transform(scale(.96))
+  100%
+    @include transform(scale(1.1))

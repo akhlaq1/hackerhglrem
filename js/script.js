@@ -8,6 +8,13 @@
   let maxHeight = [];
   let currentSlide = 0;
   let maxSlider = quotesel.length-1;
+  let scroll = {
+    hello: false,
+    want: false,
+    best: false,
+    contact: false
+  };
+  let scrolltFix;
   for (let v in quotesel) {
     let height = quotesel[v].offsetHeight;
     if (height) {
@@ -83,6 +90,79 @@
     clearTimeout(timefix);
     timefix = setTimeout(() => toast.classList.remove('active', cls), time);
   }
+  function character() {
+    let char = document.getElementById('character-base');
+    let desc = document.getElementById('character-desc');
+    window.addEventListener('scroll', function () {
+      clearTimeout(scrolltFix);
+      scrolltFix = setTimeout(() => {
+        let cond = {
+          hello: window.innerHeight-180
+        };
+        cond.want = cond.hello + document.getElementById('about').offsetHeight-100;
+        cond.best = cond.want + document.getElementById('status').offsetHeight + document.getElementById('quotes').offsetHeight-140;
+        cond.contact = cond.best + document.getElementById('portfolio').offsetHeight+700;
+        if (this.scrollY > cond.hello && !scroll.hello) {
+          scroll.hello = true;
+          desc.innerHTML = "Hello how are you ?";
+          char.classList.add('hello');
+          desc.classList.add('hello');
+        } else if (this.scrollY < cond.hello && scroll.hello) {
+          scroll.hello = false;
+          char.classList.remove('hello');
+          desc.classList.remove('hello');
+        }
+        if (this.scrollY > cond.want && !scroll.want) {
+          scroll.want = true;
+          desc.innerHTML = "Are you looking for developer?";
+          char.classList.add('want');
+          desc.classList.add('want');
+          char.classList.remove('hello');
+          desc.classList.remove('hello');
+        }
+        if (this.scrollY < cond.want && scroll.want) {
+          scroll.want = false;
+          desc.innerHTML = "Hello how are you ?";
+          char.classList.remove('want');
+          desc.classList.remove('want');
+          char.classList.add('hello');
+          desc.classList.add('hello');
+        }
+        if (this.scrollY > cond.best && !scroll.best) {
+          scroll.best = true;
+          desc.innerHTML = "Just look how good this guy is!!";
+          char.classList.add('best');
+          desc.classList.add('best');
+          char.classList.remove('want');
+          desc.classList.remove('want');
+        } else if (this.scrollY < cond.best && scroll.best) {
+          scroll.best = false;
+          desc.innerHTML = "Are you looking for developer?";
+          char.classList.remove('best');
+          desc.classList.remove('best');
+          char.classList.add('want');
+          desc.classList.add('want');
+        }
+        if (this.scrollY > cond.contact && !scroll.contact) {
+          scroll.contact = true;
+          desc.innerHTML = "Go contact him :P";
+        }
+        if (this.scrollY < cond.contact && scroll.contact) {
+          scroll.contact = false;
+          desc.innerHTML = "Just look how good this guy is!!";
+        }
+        if (this.scrollY < cond.hello) {
+          char.classList.remove('hello');
+          desc.classList.remove('hello');
+          char.classList.remove('best');
+          desc.classList.remove('best');
+          char.classList.remove('want');
+          desc.classList.remove('want');
+        }
+      }, 100);
+    });
+  }
+  character();
   var validate = {
     name: function(name) {
       name = name.trim().replace(/  +/g, ' ');
