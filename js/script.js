@@ -34,8 +34,14 @@
       apiKey: "AIzaSyCuZwQuIqipfOjvAaQwjOl6PD9H_p9Bu2w",
       databaseURL: "https://hackerhgl-d82bd.firebaseio.com"
     });
-    firebase.database().ref('portfolio').once('value').then(function(protfolio) {
+    firebase.database().ref('portfolio').once('value').then(protfolio => {
       var portfolio = protfolio.val();
+      portfolio.push({
+        name: 'Hackerhgl',
+        link: 'https://hackerhgl.github.io',
+        technologies: ['UI', 'UX', 'Bootstrap', 'Scroll Reveall', 'Animations', 'Parallax'],
+        image: 'https://firebasestorage.googleapis.com/v0/b/hackerhgl-d82bd.appspot.com/o/web%20data%2Fhackerhgl.jpg?alt=media&token=7375e671-d9cd-4f9a-b892-3b8934434eef'
+      });
       var index = 0;
       var length = portfolio.length;
       for(let i=0; i<length; i++) {
